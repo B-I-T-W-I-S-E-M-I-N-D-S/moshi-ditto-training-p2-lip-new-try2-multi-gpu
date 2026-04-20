@@ -366,7 +366,7 @@ class Trainer:
             if total_loss < self.best_loss:
                 self.best_loss = total_loss
                 best_path = os.path.join(self.ckpt_path, "lmdm_v0.4_hubert.pth")
-                torch.save(state_dict, best_path)
+                torch.save({"model_state_dict": state_dict}, best_path)
                 tqdm.write(f"[BEST MODEL] Epoch {epoch}, loss={total_loss:.6f} → {best_path}")
 
         # clear model
